@@ -51,6 +51,7 @@ Because the integrated corpus mostly generates an output, that represents langua
 Regarding language support right now, cosSim supports
 - german
 - english
+
 tokenization as well as corpora. If neede, more language support will be added in the future.
 You can specify the language by adding *de* or *en* to the **--lang** flag. If no language is explicitly stated, the program defaults to *german*. 
 
