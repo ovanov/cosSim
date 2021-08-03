@@ -1,5 +1,11 @@
+"""
+This class uses static methods to operate with the other helper classes to get a corpus or parse / crawl a directory or file.
+The filename(s) is sent to the processor class which takes care of parsing the files.
+Lastly the similarity class is called, that vectorizes the text and calculates the similarity using numpy
 
-
+@Author: ovanov
+@date: 03.08.21
+"""
 
 import os
 from typing import List, Dict
@@ -7,12 +13,10 @@ from typing import List, Dict
 from text_preprocessor import Preprocess
 from similarity import Similarity
 
-
 class Parser():
 
-
     @staticmethod
-    def parse_dir(path_to_dir: str, base_file: Dict) -> List:
+    def parse_dir(path_to_dir: str, base_file: Dict, lang: str) -> List:
         """
         This function parses the dir and returns a list of similarites. It calls the function "getSimilarity"
         """
@@ -20,21 +24,20 @@ class Parser():
         for file in os.listdir(path_to_dir):
             if file.endswith(".txt"):
                 file = os.path.join(path_to_dir, file)
-                file_to_compare = Preprocess.preprocess(file)
+                file_to_compare = Preprocess.preprocess(file, lang)
                 cossim = Similarity.get_sim(base_file, file_to_compare) * 100
                 list_of_sims.append(round(cossim,6))
 
         return list_of_sims
 
-
     @staticmethod
-    def parse_file(path_to_file: str, base_file: Dict) -> List:
+    def parse_file(path_to_file: str, base_file: Dict, lang:str) -> List:
         """
-        This function parses the file and returns a list of similarites. It calls the function "getSimilarity"
+        This function parses the file and returns a list of similarites. It calls the function "get_sim"
         """
 
         list_of_sims = []
-        file_to_compare = Preprocess.preprocess(path_to_file)
+        file_to_compare = Preprocess.preprocess(path_to_file, lang)
         cossim = Similarity.get_sim(base_file, file_to_compare) * 100
         list_of_sims.append(round(cossim,6))
 
@@ -57,11 +60,11 @@ class Parser():
 
         if lang == 'de':
             if base == False:
-                return Preprocess.preprocess(standard_german_corpus)
+                return Preprocess.preprocess(standard_german_corpus, lang)
             else:
-                return Preprocess.preprocess(base)
+                return Preprocess.preprocess(base, lang)
         elif lang == 'en':
             if base == False:
-                return Preprocess.preprocess(standard_english_corpus)
+                return Preprocess.preprocess(standard_english_corpus, lang)
             else:
-                return Preprocess.preprocess(base)
+                return Preprocess.preprocess(base, lang)

@@ -1,9 +1,10 @@
+#!/usr/bin/env python3
 """
--- OCR Comparison programm.
+This script uses the NLTK module as well as cosine similarity to de termine the word similarity of two texts.
 
-This programm tokenizes texts, creates bag of words and determines their similarity with cosine.
-To do so it uses the the nltk library. This cli can compare two files with each other as well as two files with a third one,
-a ground truth.
+It takes one or two positional arguments which are compared to a ground truth as an optional argument. If no no optional
+argument was given, it defaults to a corpus text.
+The program is able to parse german as well as english texts. More language support will be added, if somebody needs it.
 
 @Author: ovanov
 @Data: 03.03.21
@@ -46,6 +47,10 @@ def argument_parser() -> Dict:
 
 
 def main() -> sys.stdout:
+    """
+    The main function prints prints out the similarity of two or more files to the command line
+    """
+
     # get argument parser
     parser = argument_parser()
     args = parser.parse_args()
@@ -56,7 +61,6 @@ def main() -> sys.stdout:
 
     if len(args_dict['infiles']) < 1: # this condition is fullfilled, if the 
         raise KeyError('Please give at least one path or dirctory path.')
-    
 
     arg_lang = args_dict['lang']
     arg_base = args_dict['base']
@@ -67,10 +71,10 @@ def main() -> sys.stdout:
         path1 = file
 
         if args_dict['dir'] != False and args_dict['file'] == False: # if a directory was given, not a file
-            list_of_sim.append(Parser.parse_dir(path1, base_file))
+            list_of_sim.append(Parser.parse_dir(path1, base_file, arg_lang))
 
         elif args_dict['file'] != False and args_dict['dir'] == False: # if a file was given, not a directory
-            list_of_sim.append(Parser.parse_file(path1, base_file))
+            list_of_sim.append(Parser.parse_file(path1, base_file, arg_lang))
 
         else:
             raise SyntaxError('No specification regarding "file" or "directory" was given.\nPlease give the according flag')
@@ -85,6 +89,7 @@ def main() -> sys.stdout:
     
     else:
         print(f'\nSimilarity: {list_of_sim[0][0]}%\n')
+
 
 if __name__ == "__main__":
     main()

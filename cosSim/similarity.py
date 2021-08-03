@@ -1,9 +1,16 @@
+"""
+This class calculates the similarity using cosine similarity. The bag of words list is transformed to a vector, that
+is used to calculate the cosine similarity
+
+@Author: ovanov
+@date: 03.08.21
+"""
 import numpy as np
 from typing import List, Dict
 
 class Similarity():
 
-
+    @staticmethod
     def cos_sim(a: List[int], b: List[int]) -> int:
         """
         The calculation uses the standard formula for cosine similarities.
