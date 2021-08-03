@@ -1,4 +1,4 @@
-# cosSim - Compare your text files with cosine similarity
+# cosSim - See how similar your files are
 
 It is hard to determine how similar two text files are.  Without much complication, cosSim uses simple tokenization and vectorization with which a word similarity can be calculated.
 
@@ -46,6 +46,13 @@ The programm recognises with the **--dir** or **--file** flag, which kind of par
 Because the integrated corpus mostly generates an output, that represents language similarty (that is not useful in many cases), cosSim accepts your ground truth under the **--base** flag:
 
     $ cosSim path1 path2 --file --base path_to_ground_truth
+
+
+Regarding language support right now, cosSim supports
+- german
+- english
+tokenization as well as corpora. If neede, more language support will be added in the future.
+You can specify the language by adding *de* or *en* to the **--lang** flag. If no language is explicitly stated, the program defaults to *german*. 
 
 Of course you can access a help menu in within the CLI by adding **--help** or **-h** to the end of the line.
 
