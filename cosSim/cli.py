@@ -14,12 +14,12 @@ import sys
 from typing import Dict
 import numpy as np
 
-from parseClass import Parser
+from .parseClass import Parser
 
 def argument_parser() -> Dict:
     parser = argparse.ArgumentParser('Cosine Similarity Calculator',description='Command line tool for comparing two stacks of files to one ground truth file if the files or directories are not in the same directory as this file, give the complete file- /dir- path.')
     parser.add_argument('infiles',
-    help='The first and the second path should resemble directories or files, that will be compared to the ground truth',
+    help='The first (and the second) path should resemble directories or files, that will be compared to the ground truth',
     type=str,
     nargs='*',
     default=[sys.stdin])

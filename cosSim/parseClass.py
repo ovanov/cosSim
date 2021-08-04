@@ -10,8 +10,8 @@ Lastly the similarity class is called, that vectorizes the text and calculates t
 import os
 from typing import List, Dict
 
-from text_preprocessor import Preprocess
-from similarity import Similarity
+from .text_preprocessor import Preprocess
+from .similarity import Similarity
 
 class Parser():
 
@@ -55,8 +55,8 @@ class Parser():
         """
 
         dir = os.path.dirname(__file__) # get relative path to corpora
-        standard_german_corpus = os.path.join(dir, '..', 'corpora', 'german.txt')
-        standard_english_corpus = os.path.join(dir, '..', 'corpora', 'english.txt')
+        standard_german_corpus = os.path.join(dir, 'corpora', 'german.txt')
+        standard_english_corpus = os.path.join(dir, 'corpora', 'english.txt')
 
         if lang == 'de':
             if base == False:

@@ -9,7 +9,14 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'cosSim',
   packages = find_packages(),
-  version = '0.0.1',
+  package_dir={'cosSim': 'cosSim'},
+  package_data={
+    'cosSim': [
+      'corpora/german.txt',
+      'corpora/english.txt'
+      ],
+  },
+  version = '0.1.0',
   license='MIT',
   description = 'This CLI tool compares files or directories with cosine similarity.',
   long_description=long_description,
@@ -21,6 +28,7 @@ setup(
   platforms='any',
   install_requires=[
           'nltk>=3.6.2',
+          'numpy>=1.21.1'
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
