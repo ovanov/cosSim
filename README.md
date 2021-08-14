@@ -1,4 +1,14 @@
-# cosSim - See how similar your files are
+<h1 align="center">cosSim</h1>
+<p align="center">The tool that tells you how similar your files are</p>
+
+<p align="center">
+	<a href="https://github.com/ovanov/cosSim#ovanov"><img src="https://img.shields.io/github/languages/code-size/ovanov/cosSim?color=green&label=package%20size" height="20"/></a>
+    <a href="https://github.com/ovanov/cosSim#ovanov"><img src="https://img.shields.io/github/license/ovanov/cosSim?color=black" height="20"/></a>
+</p>
+
+<p align="center"><a href="https://github.com/ovanov/cosSim#ovanov"><img src="https://github.com/ovanov/gifs/blob/main/cossimdemo.gif" width="100%"/></a></p><br/>
+
+## :computer: What does it help you with?
 
 It is hard to determine how similar two text files are.  Without much complication, cosSim uses simple tokenization and vectorization with which a word similarity can be calculated.
 
@@ -6,7 +16,7 @@ This is very usefull in cases where the context is not important, but the spelli
 
 This Project has been brought to life with the help of the [AfZ](https://www.afz.ethz.ch/) (Archive of Contemporary History) at the [ETH Zürich](https://ethz.ch/en.html).
 
-# Overview
+## Overview
 
 The tool is suited to compare texts that do not depend on context, but rather rely on correct spelling. The output is presented in percent. Some use cases could be:
 
