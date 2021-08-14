@@ -49,7 +49,12 @@ or
 
     $ cosSim path_to_dir_or_file another_path
 
-The programm recognises with the **--dir** or **--file** flag, which kind of parsing you would like to do. So if you desire to compare two files to the integrated corpus, simply type:
+The programm recognises with the **--dir** or **--file** flag, which kind of parsing you would like to do.
+
+<p align="center"><a href="https://github.com/ovanov/cosSim#ovanov2"><img src="https://github.com/ovanov/gifs/blob/main/cossimdemo_dir.gif" width="100%"/></a></p><br/>
+
+
+So if you desire to compare two files to the integrated corpus, simply type:
 
     $ cosSim path1 path2 --file
 
